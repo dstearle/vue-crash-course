@@ -15,7 +15,7 @@
 <script>
 
     import Header from './components/Header.vue';
-    import Tasks from './Tasks';
+    import Tasks from './components/Tasks';
 
     export default {
 
