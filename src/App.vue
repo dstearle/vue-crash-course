@@ -5,13 +5,17 @@
         <!-- Header -->
         <Header />
 
+        <!-- Tasks -->
+        <Tasks :tasks="tasks" />
+
     </div>
 
 </template>
 
 <script>
 
-    import Header from './components/Header.vue'
+    import Header from './components/Header.vue';
+    import Tasks from './Tasks';
 
     export default {
 
@@ -20,6 +24,7 @@
         components: {
 
             Header,
+            Tasks,
 
         },
 
