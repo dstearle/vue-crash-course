@@ -6,7 +6,7 @@
         <Header />
 
         <!-- Tasks -->
-        <Tasks :tasks="tasks" />
+        <Tasks @delete-task="deleteTask" :tasks="tasks" />
 
     </div>
 
@@ -50,20 +50,31 @@
                 },
 
                 {
-                    id:1,
+                    id:2,
                     text: '"Masseuse" Appointment',
                     day: 'April 1st at 12:30am',
                     reminder: false,
                 },
 
                 {
-                    id:1,
+                    id:3,
                     text: 'Take baby to school',
                     day: 'May 14th at 8:30am',
                     reminder: true,
                 },
 
             ]
+
+        },
+
+        methods: {
+
+            // Method for removing a task
+            deleteTask(id){
+
+                console.log('task', id);
+
+            },
 
         },
 
