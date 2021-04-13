@@ -18,8 +18,49 @@
         name: 'App',
 
         components: {
-            Header
-        }
+
+            Header,
+
+        },
+
+        data() {
+
+            return {
+
+                tasks: []
+
+            }
+
+        },
+
+        created() {
+
+            this.tasks = [
+
+                {
+                    id:1,
+                    text: 'Doctors Appointment',
+                    day: 'March 21st at 2:30pm',
+                    reminder: true,
+                },
+
+                {
+                    id:1,
+                    text: '"Masseuse" Appointment',
+                    day: 'April 1st at 12:30am',
+                    reminder: false,
+                },
+
+                {
+                    id:1,
+                    text: 'Take baby to school',
+                    day: 'May 14th at 8:30am',
+                    reminder: true,
+                },
+
+            ]
+
+        },
 
     }
 
