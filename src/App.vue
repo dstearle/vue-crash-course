@@ -6,7 +6,7 @@
         <Header />
 
         <!-- Tasks -->
-        <Tasks @delete-task="deleteTask" :tasks="tasks" />
+        <Tasks @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks" />
 
     </div>
 
@@ -70,9 +70,16 @@
         methods: {
 
             // Method for removing a task
-            deleteTask(id){
+            deleteTask(id) {
 
                 this.tasks = this.tasks.filter((task) => task.id !== id )
+
+            },
+
+            // Method for toggling the reminder status of a task
+            toggleReminder(id) {
+
+                this.tasks = this.tasks.map( (task) => task.id === id ? { ...task, reminder: !task.reminder } : task )
 
             },
 
