@@ -33,13 +33,13 @@
         methods: {
 
             // Method for removing a task
-            onDelte(id){
+            onDelete(id){
 
                 this.$emit('delete-task', id);
 
             },
 
-        }
+        },
 
     }
 
