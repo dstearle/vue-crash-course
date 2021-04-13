@@ -2,8 +2,15 @@
 
     <div class="task">
 
-        <!-- Title -->
-        <h3>{{ task.text }}</h3>
+        <h3>
+            
+            <!-- Title -->
+            {{ task.text }}
+            
+            <!-- Remove Button -->
+            <i class="fas fa-times"></i>
+
+        </h3>
 
         <p>{{ task.day }}</p>
 
@@ -28,6 +35,10 @@
 </script>
 
 <style scope>
+
+    .fas {
+        color: red;
+    }
 
     .task {
     background: #f4f4f4;
