@@ -8,7 +8,7 @@
             {{ task.text }}
             
             <!-- Remove Button -->
-            <i class="fas fa-times"></i>
+            <i @click="onDelete(task.id)" class="fas fa-times"></i>
 
         </h3>
 
@@ -29,6 +29,17 @@
             task: Object,
 
         },
+
+        methods: {
+
+            // Method for removing a task
+            onDelte(id){
+
+                this.$emit('delete-task', id);
+
+            },
+
+        }
 
     }
 
