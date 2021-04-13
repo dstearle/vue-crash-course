@@ -1,6 +1,6 @@
 <template>
     
-    <button>Add Task</button>
+    <button :style="{background: color}" class="btn">{{ text }}</button>
 
 </template>
 
@@ -9,6 +9,13 @@
     export default {
 
         name: 'Button',
+
+        props: {
+
+            text: String,
+            color: String,
+
+        }
 
     }
 
