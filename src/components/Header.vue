@@ -6,7 +6,7 @@
         <h1>{{ title }}</h1>
 
         <!-- Add Task Button -->
-        <Button />
+        <Button text="Add Task" color="green" />
 
     </header>
 
