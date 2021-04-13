@@ -2,7 +2,7 @@
 
     <header>
 
-        <h1>Task Tracker</h1>
+        <h1>{{ title }}</h1>
 
     </header>
 
@@ -13,6 +13,17 @@
     export default {
 
         name: 'Header',
+
+        props: {
+
+            title: {
+
+                type: String,
+                default: "Task Tracker",
+
+            },
+
+        },
 
     }
 
