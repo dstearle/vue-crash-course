@@ -2,7 +2,11 @@
 
     <header>
 
+        <!-- Title -->
         <h1>{{ title }}</h1>
+
+        <!-- Add Task Button -->
+        <Button />
 
     </header>
 
@@ -10,9 +14,17 @@
 
 <script>
 
+    import Button from './Button';
+
     export default {
 
         name: 'Header',
+
+        components: { 
+            
+            Button,
+            
+        },
 
         props: {
 

@@ -8,8 +8,8 @@
 
     export default {
 
-        name: Button,
-        
+        name: 'Button',
+
     }
 
 </script>
