@@ -72,7 +72,7 @@
             // Method for removing a task
             deleteTask(id){
 
-                console.log('task', id);
+                this.tasks = this.tasks.filter((task) => task.id !== id )
 
             },
 
