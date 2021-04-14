@@ -86,7 +86,10 @@
 
                 }
 
-                console.log(newTask);
+                // console.log(newTask);
+
+                // Emits the new task to the main app
+                this.$emit('add-task', newTask)
 
                 // Resets the fields after submission
                 this.text = ''

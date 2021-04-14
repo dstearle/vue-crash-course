@@ -6,7 +6,7 @@
         <Header />
 
         <!-- Add Task Form -->
-        <AddTask />
+        <AddTask @add-task="addTask" />
 
         <!-- Tasks List -->
         <Tasks @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks" />
@@ -73,6 +73,13 @@
         },
 
         methods: {
+
+            // Method for adding a task
+            addTask(task) {
+
+                this.tasks = [...this.tasks, task]
+
+            },
 
             // Method for removing a task
             deleteTask(id) {
