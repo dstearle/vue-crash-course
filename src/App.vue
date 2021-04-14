@@ -3,7 +3,7 @@
     <div class="container">
 
         <!-- Header -->
-        <Header />
+        <Header @toggle-add-task="toggleAddTask" />
 
         <!-- Add Task Form -->
         <div v-show="showAddTask">
@@ -90,6 +90,13 @@
             deleteTask(id) {
 
                 this.tasks = this.tasks.filter((task) => task.id !== id )
+
+            },
+
+            // Shows or hides the add task form
+            toggleAddTask() {
+
+                this.showAddTask = !this.showAddTask
 
             },
 
