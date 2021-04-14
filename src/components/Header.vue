@@ -8,7 +8,7 @@
         <!-- Add Task Button -->
         <Button 
             @toggle-add-task="$emit('toggle-add-task')"
-            text="Add Task" 
+            :text="showAddTask ? 'Close' : 'Add Task'" 
             color="green" 
         />
 
@@ -38,6 +38,7 @@
                 default: "Task Tracker",
 
             },
+            showAddTask: Boolean,
 
         },
 
