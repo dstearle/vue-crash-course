@@ -79,7 +79,8 @@
                 // Creates a new task with the users input
                 const newTask = {
 
-                    id: Math.floor(Math.random * 100000),
+                    // Deprecated since json-server now creates the id
+                    // id: Math.floor(Math.random * 100000),
                     text: this.text,
                     day: this.day,
                     reminder: this.reminder,

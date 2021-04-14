@@ -89,9 +89,24 @@
         methods: {
 
             // Method for adding a task
-            addTask(task) {
+            async addTask(task) {
 
-                this.tasks = [...this.tasks, task]
+                // The data to be fetched
+                const res = await fetch('api/tasks', {
+
+                    method: 'POST',
+                    headers: {
+                        'Content-type': 'application/json',
+                    },
+                    body: JSON.stringify(task)
+
+                })
+
+                // The response
+                const data = await res.json()
+
+                // The new list of data
+                this.tasks = [...this.tasks, data]
 
             },
 
@@ -120,7 +135,9 @@
             async fetchTasks() {
 
                 // The data to be fetched
-                const res = await fetch('http://localhost:5000/tasks')
+                // const res = await fetch('http://localhost:5000/tasks')
+                // Via test server
+                const res = await fetch('api/tasks')
 
                 // The response
                 const data = await res.json()
@@ -133,7 +150,9 @@
             async fetchTask() {
 
                 // The data to be fetched
-                const res = await fetch(`http://localhost:5000/tasks/${id}`)
+                // const res = await fetch(`http://localhost:5000/tasks/${id}`)
+                // Via test server
+                const res = await fetch(`api/tasks/${id}`)
 
                 // The response
                 const data = await res.json()
