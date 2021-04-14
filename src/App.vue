@@ -3,7 +3,10 @@
     <div class="container">
 
         <!-- Header -->
-        <Header @toggle-add-task="toggleAddTask" />
+        <Header 
+            @toggle-add-task="toggleAddTask" 
+            :showAddTask="showAddTask"
+        />
 
         <!-- Add Task Form -->
         <div v-show="showAddTask">
