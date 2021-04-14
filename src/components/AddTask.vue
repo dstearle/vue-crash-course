@@ -59,6 +59,44 @@
 
         },
 
+        methods: {
+
+            // Method for submitting a new task to the list
+            onSubmit(e) {
+
+                // Prevents empty submissions
+                e.preventDefault()
+
+                // If task input is empty inform user to fill in
+                if(!this.text) {
+
+                    alert('Please add a task')
+
+                    return
+
+                }
+
+                // Creates a new task with the users input
+                const newTask = {
+
+                    id: Math.floor(Math.random * 100000),
+                    text: this.text,
+                    day: this.day,
+                    reminder: this.reminder,
+
+                }
+
+                console.log(newTask);
+
+                // Resets the fields after submission
+                this.text = ''
+                this.day = ''
+                this.reminder = false
+
+            },
+
+        },
+
     }
 
 </script>
