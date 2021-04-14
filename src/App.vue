@@ -111,9 +111,12 @@
             },
 
             // Method for removing a task
-            deleteTask(id) {
+            async deleteTask(id) {
 
-                this.tasks = this.tasks.filter((task) => task.id !== id )
+                // The data to be deleted
+                const res = await fetch(`api/tasks/${id}`, { method: 'DELETE' })
+
+                res.status === 200 ? (this.tasks = this.tasks.filter((task) => task.id !== id )) : alert('Error deleting task')
 
             },
 
