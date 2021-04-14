@@ -51,34 +51,40 @@
 
         },
 
-        created() {
+        async created() {
 
-            this.tasks = [
-
-                {
-                    id:1,
-                    text: 'Doctors Appointment',
-                    day: 'March 21st at 2:30pm',
-                    reminder: true,
-                },
-
-                {
-                    id:2,
-                    text: '"Masseuse" Appointment',
-                    day: 'April 1st at 12:30am',
-                    reminder: false,
-                },
-
-                {
-                    id:3,
-                    text: 'Take baby to school',
-                    day: 'May 14th at 8:30am',
-                    reminder: true,
-                },
-
-            ]
+            this.tasks = await this.fetchTasks()
 
         },
+
+        // created() {
+
+        //     this.tasks = [
+
+        //         {
+        //             id:1,
+        //             text: 'Doctors Appointment',
+        //             day: 'March 21st at 2:30pm',
+        //             reminder: true,
+        //         },
+
+        //         {
+        //             id:2,
+        //             text: '"Masseuse" Appointment',
+        //             day: 'April 1st at 12:30am',
+        //             reminder: false,
+        //         },
+
+        //         {
+        //             id:3,
+        //             text: 'Take baby to school',
+        //             day: 'May 14th at 8:30am',
+        //             reminder: true,
+        //         },
+
+        //     ]
+
+        // },
 
         methods: {
 
@@ -107,6 +113,32 @@
             toggleReminder(id) {
 
                 this.tasks = this.tasks.map( (task) => task.id === id ? { ...task, reminder: !task.reminder } : task )
+
+            },
+
+            // Fetches the data from json-server
+            async fetchTasks() {
+
+                // The data to be fetched
+                const res = await fetch('http://localhost:5000/tasks')
+
+                // The response
+                const data = await res.json()
+
+                return data
+
+            },
+
+            // Fetches a single data object from json-server
+            async fetchTask() {
+
+                // The data to be fetched
+                const res = await fetch(`http://localhost:5000/tasks/${id}`)
+
+                // The response
+                const data = await res.json()
+
+                return data
 
             },
 
