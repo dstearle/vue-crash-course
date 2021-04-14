@@ -128,9 +128,26 @@
             },
 
             // Method for toggling the reminder status of a task
-            toggleReminder(id) {
+            async toggleReminder(id) {
 
-                this.tasks = this.tasks.map( (task) => task.id === id ? { ...task, reminder: !task.reminder } : task )
+                // The specific task to be toggled
+                const taskToToggle = await this.fetchTask(id)
+                // Toggles the state of the reminder
+                const updateTask = {...taskToToggle, reminder: !taskToToggle.reminder}
+
+                // The data to be updated
+                const res = await fetch(`api/tasks/${id}`, {
+
+                    method: 'PUT', 
+                    headers: {'Content-type': 'application/json'},
+                    body: JSON.stringify(updateTask)
+
+                })
+
+                // The response
+                const data = await res.json()
+
+                this.tasks = this.tasks.map( (task) => task.id === id ? { ...task, reminder: data.reminder } : task )
 
             },
 
@@ -150,7 +167,7 @@
             },
 
             // Fetches a single data object from json-server
-            async fetchTask() {
+            async fetchTask(id) {
 
                 // The data to be fetched
                 // const res = await fetch(`http://localhost:5000/tasks/${id}`)
